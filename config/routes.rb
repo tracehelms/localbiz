@@ -1,7 +1,7 @@
 Localbiz::Application.routes.draw do
 
   devise_for :users
-  root to: 'application#index'
+  root to: 'home#index'
 
   resources :user, only: [:index]
 

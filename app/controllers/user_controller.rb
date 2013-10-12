@@ -1,7 +1,7 @@
 class UserController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
-    render text: 'This is the User index page!'
   end
 
 end
