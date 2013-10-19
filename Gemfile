@@ -37,6 +37,7 @@ end
 
 group :development do
   gem 'foreman', '~> 0.63.0'
+  gem 'letter_opener', '~> 1.1.2'
 end
 
 group :development, :test do
