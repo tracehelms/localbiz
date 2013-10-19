@@ -1,5 +1,17 @@
-<header>
-  <% unless user_signed_in? %>
-    <%= link_to 'Sign Up!', new_user_registration_path %>
-  <% end %>
+<header class="top-bar">
+  <ul class="title-area">
+    <li class="name">
+      <h1><%= link_to t('title'), root_path %></h1>
+    </li>
+  </ul>
+  <section class="top-bar-section">
+    <ul class="right">
+      <li>
+        <% if user_signed_in? %>
+          <%= link_to t('sign_out'), destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to t('sign_in'), new_user_session_path %>
+        <% end %>
+      </li>
+    </ul>
 </header>

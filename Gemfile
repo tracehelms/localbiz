@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'zurb-foundation', '~> 4.0.0'
 gem 'devise', '~> 3.1.1'
+gem 'simple_form'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
