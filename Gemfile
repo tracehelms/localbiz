@@ -32,6 +32,7 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
                               :github => 'anjlab/bootstrap-rails'
 gem 'devise', '~> 3.1.1'
 gem 'simple_form'
+gem 'will_paginate', '~> 3.0'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -41,6 +42,7 @@ end
 group :development do
   gem 'foreman', '~> 0.63.0'
   gem 'letter_opener', '~> 1.1.2'
+  gem 'better_errors'
 end
 
 group :development, :test do

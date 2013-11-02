@@ -1,0 +1,17 @@
+<section class="users-listing">
+  <div class="row">
+    <h1 class="col-md-12 text-center">Listing Users</h1>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 column">
+      <% @users.each do |user| %>
+        <%= gravatar_for(user) %>
+        <%= user.name %>
+      <% end %>
+    </div>
+
+    <div class="col-md-12 text-center">
+      <%= will_paginate @users %>
+    </div>
+</div>
