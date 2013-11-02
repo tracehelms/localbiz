@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Localbiz</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+  	<meta charset="utf-8" />
 
-<%= yield %>
+  	<!-- Set the viewport width to device width for mobile -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-</body>
+  	<title><%= content_for?(:title) ? yield(:title) : t('title') %></title>
+
+  	<%= stylesheet_link_tag    "application" %>
+  	<%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
