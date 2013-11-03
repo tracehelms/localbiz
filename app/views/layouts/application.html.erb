@@ -16,7 +16,22 @@
   <body>
 
     <%= render 'layouts/header' %>
+
     <div class="container">
+      <div class="row">
+        <% flash.each do |key, value| %>
+          <% type = 'success' if key == :notice %>
+          <% type = 'warning' if key == :alert %>
+          <% type = 'danger' if key == :error %>
+
+          <div class="col-md-12 alert alert-<%= type || key %>">
+            <%= value %>
+            <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+          </div>
+
+        <% end %>
+      </div>
+
       <%= yield %>
     </div>
 

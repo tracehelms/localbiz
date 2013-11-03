@@ -6,8 +6,10 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3 column">
       <% @users.each do |user| %>
-        <%= gravatar_for(user) %>
-        <%= user.name %>
+        <p>
+          <%= gravatar_for(user) %>
+          <%= user.name %>
+        </p>
       <% end %>
     </div>
 
