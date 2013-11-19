@@ -33,6 +33,7 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 gem 'devise', '~> 3.1.1'
 gem 'simple_form'
 gem 'will_paginate', '~> 3.0'
+gem 'pundit', '~> 0.2.1'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
