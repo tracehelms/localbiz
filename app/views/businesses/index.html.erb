@@ -17,8 +17,8 @@
         <td><%= business.name %></td>
         <td><%= business.category %></td>
         <td><%= link_to 'Show', business %></td>
-        <td><%= link_to 'Edit', edit_business_path(business) %></td>
-        <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_business_path(business) if policy(business).update?%></td>
+        <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } if policy(business).destroy?%></td>
       </tr>
     <% end %>
   </tbody>
