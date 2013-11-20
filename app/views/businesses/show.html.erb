@@ -7,6 +7,10 @@
   <strong>Category:</strong>
   <%= @business.category %>
 </p>
+<section>
+  <h2>Addresses</h2>
+  <%= render partial: 'address', collection: @business.addresses %>
+</section>
 
 <%= link_to 'Edit', edit_business_path(@business) %> |
 <%= link_to 'Back', businesses_path %>
