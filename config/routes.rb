@@ -1,11 +1,10 @@
 Localbiz::Application.routes.draw do
 
-  resources :businesses
-
   devise_for :users
   root to: 'home#index'
 
-  resources :users, only: [:index]
+  resources :users, only: [:index, :show, :edit, :update]
+  resources :businesses
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,0 +1,20 @@
+<section class="users-listing">
+  <div class="row">
+    <h1 class="col-md-12 text-center"><%= @user.name %></h1>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 column">
+      <%= gravatar_for(@user, size: 150) %>
+      <%= link_to 'Edit', edit_user_path(@user) if policy(@user).edit? %>
+    </div>
+  </div>
+
+  <% if @user.addresses.any? %>
+    <section>
+      <h2>Addresses</h2>
+      <%= render partial: 'address', collection: @user.addresses %>
+    </section>
+  <% end %>
+
+</div>

@@ -1,9 +1,8 @@
-<%= simple_form_for(@business) do |f| %>
+<%= simple_form_for(@user) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :category %>
   </div>
 
   <%= f.fields_for :addresses do |builder| %>

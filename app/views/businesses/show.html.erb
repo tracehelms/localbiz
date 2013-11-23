@@ -1,12 +1,15 @@
-<p>
-  <strong>Name:</strong>
-  <%= @business.name %>
-</p>
+<h1><%= @business.name %></h1>
 
 <p>
   <strong>Category:</strong>
   <%= @business.category %>
 </p>
+<% if @business.addresses.any? %>
+  <section>
+    <h2>Addresses</h2>
+    <%= render partial: 'address', collection: @business.addresses %>
+  </section>
+<% end %>
 
 <%= link_to 'Edit', edit_business_path(@business) %> |
 <%= link_to 'Back', businesses_path %>
