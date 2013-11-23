@@ -25,7 +25,7 @@ class BusinessesController < ApplicationController
   # POST /businesses
   # POST /businesses.json
   def create
-    @business = current_user.businesses.build(business_params)
+    @business ||= current_user.businesses.build(business_params)
 
     respond_to do |format|
       if @business.save
@@ -80,7 +80,7 @@ private
     # Never trust parameters from the scary internet, only allow the white list through.
     def business_params
       params.require(:business).permit(:name, :category,
-        addresses_attributes: [:name, :line1, :line2, :city, :state, :zip, :phone]
+        addresses_attributes: [:id, :name, :line1, :line2, :city, :state, :zip, :phone, :_destroy]
       )
     end
 end
