@@ -34,7 +34,7 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name,
+      params.require(:user).permit(:name, :about,
         addresses_attributes: [:id, :line1, :line2, :city, :state, :zip, :phone, :_destroy]
       )
     end

@@ -8,9 +8,10 @@
     <div class="col-md-4 col-md-offset-1 column">
       <%= gravatar_for(@user, size: 250) %>
     </div>
-    <div class="col-md-4 col-md-offset-2 column">
+    <div class="col-md-5 col-md-offset-2 column">
+      <p><%= @user.about %></p>
       <% @user.addresses.each do |address| %>
-        <p><%= "#{address.city.titlecase}, #{address.state.upcase}" %></p>
+        <p><strong><%= "#{address.city.titlecase}, #{address.state.upcase}" %></strong></p>
       <% end %>
     </div>
   </div>

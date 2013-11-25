@@ -79,7 +79,7 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def business_params
-      params.require(:business).permit(:name, :category,
+      params.require(:business).permit(:name, :category, :about,
         addresses_attributes: [:id, :line1, :line2, :city, :state, :zip, :phone, :_destroy]
       )
     end
