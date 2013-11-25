@@ -1,15 +1,21 @@
-<h1><%= @business.name %></h1>
+<section>
+  <header class="text-center">
+    <h1><%= @business.name %></h1>
+    <p><%= link_to 'Edit', edit_business_path(@business) %></p>
+  </header>
 
-<p>
-  <strong>Category:</strong>
-  <%= @business.category %>
-</p>
-<% if @business.addresses.any? %>
-  <section>
-    <h2>Addresses</h2>
-    <%= render partial: 'address', collection: @business.addresses %>
-  </section>
-<% end %>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1 column">
+      <p><strong>Category: </strong><%= @business.category %></p>
+    </div>
+    <div class="col-md-4 col-md-offset-2 column">
+      <% if @business.addresses.any? %>
+        <section>
+          <h2>Addresses</h2>
+          <%= render partial: 'address', collection: @business.addresses %>
+        </section>
+      <% end %>
+    </div>
+  </div>
 
-<%= link_to 'Edit', edit_business_path(@business) %> |
-<%= link_to 'Back', businesses_path %>
+</section>

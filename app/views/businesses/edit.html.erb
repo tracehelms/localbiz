@@ -1,6 +1,9 @@
-<h1>Editing Business</h1>
+<section>
+  <header>
+    <h1 class="text-center">Editing <%= @business.name %></h1>
+    <p class="text-center"><%= link_to 'Show', @business %></p>
+  </header>
 
-<%= render 'form' %>
+  <%= render 'form' %>
 
-<%= link_to 'Show', @business %> |
-<%= link_to 'Back', businesses_path %>
+</section>

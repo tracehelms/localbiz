@@ -1,30 +1,39 @@
-<h1>Businesses</h1>
+<section>
+  <header>
+    <h1 class="text-center">Businesses</h1>
+  </header>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+  <div class="row">
+    <div class="col-md-4 col-md-offset-2">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @businesses.each do |business| %>
-      <tr>
-        <td><%= business.name %></td>
-        <td><%= business.category %></td>
-        <td><%= link_to 'Show', business %></td>
-        <td><%= link_to 'Edit', edit_business_path(business) if policy(business).update?%></td>
-        <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } if policy(business).destroy?%></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @businesses.each do |business| %>
+            <tr>
+              <td><%= link_to business.name, business %></td>
+              <td><%= business.category %></td>
+              <td><%= link_to 'Edit', edit_business_path(business) if policy(business).update?%></td>
+              <td><%= link_to 'Destroy', business, method: :delete, data: { confirm: 'Are you sure?' } if policy(business).destroy?%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-<br>
-<%= will_paginate @businesses %>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <%= will_paginate @businesses %>
 
-<%= link_to 'New Business', new_business_path %>
+      <p><%= link_to 'New Business', new_business_path %></p>
+    </div>
+  </div>
+</section>
