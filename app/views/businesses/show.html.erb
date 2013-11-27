@@ -18,5 +18,18 @@
       <% end %>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Reviews</h2>
+      <div class="row">
+      <% @business.reviews.each do |review| %>
+        <p class="col-md-3">
+          <strong><%= review.rating %> Stars</strong>
+          <%= review.content %>
+        </p>
+      <% end %>
+    </div>
+    <%= link_to 'Add Review', business_new_review_path(business_id: @business.id) %>
+  </div>
 
 </section>
