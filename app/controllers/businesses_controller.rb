@@ -75,7 +75,7 @@ class BusinessesController < ApplicationController
   end
 
   def create_review
-    params[:user_id] = current_user.id
+    params[:review][:user_id] = current_user.id
     @review ||= @business.reviews.build(review_params)
     # authorize @review
     if @review.save
@@ -84,7 +84,7 @@ class BusinessesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.html { render action: 'new' }
+        format.html { render action: 'new_review' }
       end
     end
   end
@@ -111,6 +111,6 @@ private
     end
 
     def review_params
-      params.require(:review).permit(:content, :rating)
+      params.require(:review).permit(:content, :rating, :user_id)
     end
 end

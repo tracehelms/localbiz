@@ -2,6 +2,7 @@
   <header class="text-center">
     <h1><%= @business.name %></h1>
     <p><strong>Category: </strong><%= @business.category %></p>
+    <p><strong>Average Rating: </strong><%= @business.average_rating %></p>
     <p><%= link_to 'Edit', edit_business_path(@business) if policy(@business).edit?%></p>
   </header>
 
@@ -23,10 +24,11 @@
       <h2>Reviews</h2>
       <div class="row">
       <% @business.reviews.each do |review| %>
-        <p class="col-md-3">
-          <strong><%= review.rating %> Stars</strong>
-          <%= review.content %>
-        </p>
+        <div class="col-md-3">
+          <p><strong><%= review.rating %> Stars</strong>
+          <%= review.content %></p>
+          <p><%= link_to review.user.name, review.user %></p>
+        </div>
       <% end %>
     </div>
     <%= link_to 'Add Review', business_new_review_path(business_id: @business.id) %>
