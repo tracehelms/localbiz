@@ -16,4 +16,18 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Reviews</h2>
+      <div class="row">
+      <% @user.reviews.each do |review| %>
+        <div class="col-md-3">
+          <p><%= link_to review.reviewable.name, review.reviewable %></p>
+          <p><strong><%= review.rating %> Stars</strong>
+          <%= review.content %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
 </div>
