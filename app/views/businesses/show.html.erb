@@ -25,9 +25,9 @@
       <div class="row">
       <% @business.reviews.each do |review| %>
         <div class="col-md-3">
+          <p><%= link_to review.user.name, review.user %></p>
           <p><strong><%= review.rating %> Stars</strong>
           <%= review.content %></p>
-          <p><%= link_to review.user.name, review.user %></p>
         </div>
       <% end %>
     </div>
