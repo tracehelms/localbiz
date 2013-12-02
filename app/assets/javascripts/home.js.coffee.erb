@@ -1,0 +1,32 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+
+$ ->
+  mapOptions =
+    center: new google.maps.LatLng(40.468525, -98.593750),
+    zoom: 4
+  map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
+
+  geocode = (name, address_str) ->
+    geo = new google.maps.Geocoder
+    geo.geocode({address: address_str}, (result, status) ->
+      if status == 'OK'
+        console.log(result[0].geometry.location)
+        console.log(name)
+        addMarker(result[0].geometry.location, name)
+    )
+
+  addMarker = (lat_long_obj, name) ->
+    marker = new google.maps.Marker({
+      position: lat_long_obj
+      map: map,
+      title: name
+    })
+
+
+  $('#address-list .address-block').each( (index) ->
+    name = $(this).find('.name').text()
+    address = $(this).find('.address').text()
+    geocode(name, address)
+  )
