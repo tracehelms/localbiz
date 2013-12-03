@@ -1,0 +1,16 @@
+<section>
+  <header class="">
+    <h1>New Review For <%= @business.name %></h1>
+  </header>
+  <div class="row">
+    <div class="col-md-6">
+      <%= simple_form_for @review, url: business_create_review_path(business_id: @business.id) do |f| %>
+        <%= f.input :content %>
+        <%= f.input :rating %>
+        <div class="text-center form-actions">
+          <%= f.button :submit, "Submit Review" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

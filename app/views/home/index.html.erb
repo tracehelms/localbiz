@@ -1,0 +1,16 @@
+<h2 class="text-center">A Few of Our Businesses</h2>
+<div id="map-canvas"></div>
+<div class="row">
+  <div id="address-list">
+    <% Business.first(5).each do |business| %>
+      <% if business.addresses.any? && business.addresses.first.to_s.present? %>
+        <div class="col-md-3">
+          <div class="address-block">
+            <div class="name"><strong><%= business.name %></strong></div>
+            <div class="address"><%= business.addresses.first.to_s %></div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<section class="users-listing">
+  <div>
+    <h1 class="text-center">Users</h1>
+  </div>
+
+  <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-md-2 text-center">
+        <%= link_to user_path(user) do %>
+          <p><%= gravatar_for(user) %></p>
+          <p><%= user.name if policy(user).show? %></p>
+        <% end %>
+        <p><%= link_to 'Edit', edit_user_path(user) if policy(user).edit? %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-md-12 text-center">
+    <%= will_paginate @users %>
+  </div>
+</div>

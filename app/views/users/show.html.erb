@@ -1,0 +1,33 @@
+<section class="users-listing">
+  <header class="text-center">
+    <h1><%= @user.name %></h1>
+    <p><%= link_to 'Edit', edit_user_path(@user) if policy(@user).edit? %></p>
+  </header>
+
+  <div class="row">
+    <div class="col-md-4 col-md-offset-1 column">
+      <%= gravatar_for(@user, size: 250) %>
+    </div>
+    <div class="col-md-5 col-md-offset-2 column">
+      <p><%= @user.about %></p>
+      <% @user.addresses.each do |address| %>
+        <p><strong><%= "#{address.city.titlecase}, #{address.state.upcase}" %></strong></p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Reviews</h2>
+      <div class="row">
+      <% @user.reviews.each do |review| %>
+        <div class="col-md-3">
+          <p><%= link_to review.reviewable.name, review.reviewable %></p>
+          <p><strong><%= review.rating %> Stars</strong>
+          <%= review.content %></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>

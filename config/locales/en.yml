@@ -20,4 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  title: 'LocalBiz'
+  sign_in: 'Sign In'
+  sign_out: 'Sign Out'
+  sign_up: 'Sign Up'

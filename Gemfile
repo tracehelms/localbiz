@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -27,8 +28,12 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'zurb-foundation', '~> 4.0.0'
+gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
+                              :github => 'anjlab/bootstrap-rails'
 gem 'devise', '~> 3.1.1'
+gem 'simple_form'
+gem 'will_paginate', '~> 3.0'
+gem 'pundit', '~> 0.2.1'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -37,6 +42,13 @@ end
 
 group :development do
   gem 'foreman', '~> 0.63.0'
+  gem 'letter_opener', '~> 1.1.2'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
 end
 
 group :production do
